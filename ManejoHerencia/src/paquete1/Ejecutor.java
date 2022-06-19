@@ -61,7 +61,7 @@ public class Ejecutor {
         } while (bandera);
     }
 
-    private static int interfaz() {
+    public static int interfaz() {
         Scanner entry = new Scanner(System.in);
         int opcion;
         System.out.println("        **Interfaz**");
