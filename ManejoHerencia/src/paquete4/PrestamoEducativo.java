@@ -19,20 +19,20 @@ public class PrestamoEducativo extends Prestamo {
     private InstitucionEducativa centroEducativo;
     private double valorCarrera;
     private double valorMensual;
-    
 
-    public PrestamoEducativo(Persona p, int t, String ciud, String nivEstu, double valor) {
+    public PrestamoEducativo(Persona p, int t, String ciud, 
+            InstitucionEducativa i, String nivEstu, double valor) {
         super(p, t, ciud);
+        centroEducativo = i;
         nivelEstudio = nivEstu;
         valorCarrera = valor;
-
 
     }
 
     public void establecerCiudad(String ciu) {
         ciudadPrestamo = ciu.toUpperCase();
     }
-    
+
     public void establecerNivelEstudio(String n) {
         nivelEstudio = n;
     }
@@ -49,7 +49,7 @@ public class PrestamoEducativo extends Prestamo {
         double aux;
         aux = (valorCarrera / tiempoPrestamo);
         valorMensual = (10 * aux) / 100;
-        valorMensual = aux - valorMensual; 
+        valorMensual = aux - valorMensual;
     }
 
     public String obtenerNivelEstudio() {
@@ -59,7 +59,6 @@ public class PrestamoEducativo extends Prestamo {
     public InstitucionEducativa obtenerInstitucionEducativa() {
         return centroEducativo;
     }
-
 
     // 7. Método obtenerMatriculaDistancia() : Real
     public double obtenerValorCarrera() {
@@ -78,16 +77,14 @@ public class PrestamoEducativo extends Prestamo {
                 + "Siglas %s\n"
                 + "Tiempo Prestamos: %d\n"
                 + "Ciudad Del Prestamo: %s\n"
-                + "Tipo De Automovil: %s\n"
-                + "Marca De Automovil: %s\n"
-                + "Valor Automovil: %.2f\n"
+                + "Nivel De Estudio: %s\n"
+                + "Valor De La Carrera: %s\n"
                 + "Valor Mensual: %.2f\n",
                 centroEducativo.obtenerNombreInstitucion(),
                 centroEducativo.obtenerSiglasInstitucion(),
                 tiempoPrestamo,
                 ciudadPrestamo,
                 nivelEstudio,
-                centroEducativo,
                 valorCarrera,
                 valorMensual);
 
